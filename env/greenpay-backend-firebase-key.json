@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "greenpay-backend",
+  "private_key_id": "3b55692ff66ecf2f57bfa659c3a2b6653ee67925",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC+ZdeZXYbkP2mJ\n+huKDwn8MxDDJHg1zbVdfNws/T/uMGgiDy2l19ATUMcHbeLMnSaRoSca9tPt1gKy\nr9W9AJVONJYZMnIBitGCU9jimD/REtMAaiiwMqNuImil/VJqSERkBOb95XTsq7pg\nHSKRzUsFgbzDrX4uCCd3rOeF4Cid8hyXjT8sOOtwnXWgdkYvPRvuYS4j2zIALELj\nD8BYGDdJ81idVSy2nbmJr2E5/tEf19LwnsX+gEP8AnIEg0Ba+CpfPx3o1gkuNF8E\nUL3GLTcpD8SOTvm2yQtjrQbMrZ1Fwbm4DtiaUKFKxmlHPbOZv6XYxgXPxnRdY9FY\n4Ts5UmuLAgMBAAECggEARqhCv36O7at+vh6cE7sLCJXm1ZR2K/lgIgaRKvz8uacr\nLeCWHyKc7F4gzmgAL9DuHENC4OXStkOikq9gUZiiz/gB7+3hkyLyJzx4k3bO0Ab9\nWP0Mhn70WY3Zaig9aoXRI5ESLAz4PFBqhPqq9pLKEYwZAkEjP2/1PZtj/DG4wQwQ\n9HnOdVoAxgxR4mm/kcB1pLc9OJgGbK1izVhxj0zoQQAPsdrWSGJgUx21ypxqY2rG\nnh+//a4Qeu+eNvHX5NHI0k1YmsPeeCse3WsAiAtes8/XVfep5EcBMAdOQyh7uwbz\nnwhQ2L9ZS4hxteMowVnpCqkwpwUqFkTu2/QrVZ91wQKBgQDx/h+l9jcZiPaYlrew\nUHJo0whMJxyHASok7bMPDw8+EZdf2+2aYyjGxusejUiwlgfYPkU6aI8VUgIStiPO\nOIs8uf30BC0bYon2p84yGVSW/DdX0I/Ppf7r+9o0FadZFiOaKCaENiNJqBng1GbV\nULcRyEFE7RJtN+XKGKZ4Fz/KawKBgQDJay4N7koW3rQt6/h6XGLmVZ6mI40XQgoB\notjbWXNU7DDO6n31bMO/hAAckUzDVVmFSBDqWzJTRejolCta3YQUGH16WhTmozgQ\njH0CcC/C+MoIyhf2T3jmawdaz0oQkn2aHXs4OS/2e5gW1CcJhS6Smx73Aedkof4C\n3OAcPKRrYQKBgQC/j6Iv91sgvJowqkaYrOYUctHDrsZXXKWm+/9dsVcolDZXLLrH\nFy3FRNwEoGTlXK6zEIAuv2xcvUFk3Ig1i+800CrnCpNGdVevSKDiacjbiKaqvi/J\neab12bWeu3FxBSSDuLrcuBpxCUALCTiqLi3tRq/cRyrqCHC/7YmB0S2vJwKBgFhM\nLiJZRg2Ej8RZ39H0Uj7bZfM7PozlnHFfLGXsbszZxgPPdGx0w9NfUJU1dUtkTRxK\nnW+/ju5GhXYADomE9nPA0LEkcGkzQE6w59R7zdRRMHBt99c4u613WgALQ1LEhV9c\ncToSh94sDF5lnr9jrSkD660pHoFVKn+iyHRYeVPBAoGBAMz5de30MolhTYfomF+s\nmQU802iHRrCBOP3o3TbX04uMYiWpBnrH8DX/SgLq2jeO0HzYWCxYZlJtb1Qg1EGC\nT27eV8eqlyihlKZnWIENCmPr+hLqj84U8KQid5oAOaotnO60gmf70/+ob5tDFC8N\nfmCKt3HNczSuLvRLkn9lXQhh\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ibcmu@greenpay-backend.iam.gserviceaccount.com",
+  "client_id": "110957013425680004405",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ibcmu%40greenpay-backend.iam.gserviceaccount.com"
+}
