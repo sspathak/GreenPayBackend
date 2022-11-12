@@ -13,4 +13,3 @@ RUN pip3 install -r /GreenPayBackend/requirements.txt
 
 CMD ["python", "/GreenPayBackend/api/app.py", "|", "tee", "-a" , "./flask-out.txt"]
 
-#CMD ["python", "-c", "while(True):  pass"]
