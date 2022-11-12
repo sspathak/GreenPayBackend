@@ -23,7 +23,7 @@ def get_brands():
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)
 
-@api.route('/get_brands', methods=['GET'])
+@api.route('/get_offers', methods=['GET'])
 def get_offers():
     try:
         ret = helpers.get_offers()
