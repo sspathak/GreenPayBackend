@@ -9,5 +9,5 @@ payload = json.dumps({
 headers = {
   'Content-Type': 'application/json'
 }
-response = requests.request("GET", url, headers=headers, data=payload)
+response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
