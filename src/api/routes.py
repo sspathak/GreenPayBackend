@@ -32,7 +32,7 @@ def get_offers():
     return jsonify(ret)
 
 @api.route('/get_users', methods=['GET'])
-def get_brands():
+def get_users():
     try:
         ret = helpers.get_users()
     except Exception as e:
