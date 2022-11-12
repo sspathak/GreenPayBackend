@@ -38,3 +38,39 @@ def get_users():
     except Exception as e:
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)
+
+
+@api.route('/add_points', methods=['POST'])
+def add_points():
+    request_json = json.loads(request.data)
+    try:
+        uid = request_json['userID']
+    except KeyError:
+        return jsonify("userID key not provided in request data")
+    try:
+        table = request_json['table']
+    except KeyError:
+        return jsonify("table key not provided in request data")
+    try:
+        ret = helpers.add_points(uid, table)
+    except Exception as e:
+        return jsonify(f"Error code AP01: {e}")
+    return jsonify(ret)
+
+
+@api.route('/add_points_manual', methods=['POST'])
+def add_points_manual():
+    request_json = json.loads(request.data)
+    try:
+        uid = request_json['userID']
+    except KeyError:
+        return jsonify("userID key not provided in request data")
+    try:
+        pts = request_json['points']
+    except KeyError:
+        return jsonify("points key not provided in request data")
+    try:
+        ret = helpers.add_points(uid, pts)
+    except Exception as e:
+        return jsonify(f"Error code AP01: {e}")
+    return jsonify(ret)

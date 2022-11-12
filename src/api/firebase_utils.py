@@ -59,6 +59,85 @@ def get_firebase_users():
     ref = db.reference('/users', app=app)
     db_json = ref.get()
     return db_json
+
+
+def add_points_to_user(points, user):
+    ref = db.reference(f'/users/{user}/points', app=app)
+    db_json = ref.get()
+    try:
+        current_pts = int(str(db_json))
+    except (TypeError, ValueError) as e:
+        return f"FAILED TO UPDATE: db_json value is {db_json}"
+    ref.update(current_pts+points)
+    return "SUCCESS"
+
+def compute_points(item, price):
+    p = price
+    if price[0] == '$':
+        p = price[1:]
+    try:
+        pr = float(p)
+    except ValueError as e:
+        return -1
+    return pr * 100
+
+
+def add_points_firebase(user, table):
+    # check if user exists
+    users = get_firebase_users()
+    if user not in users:
+        return "FAIL"
+    # check if table is valid
+    if type(table) != list:
+        return "FAIL"
+    pts_to_add = 0
+    for r in table:
+        if "PRICE" not in r or 'ITEM' not in r:
+            return "FAIL"
+        # calculate points based on the table
+        pts_to_add += compute_points(r['ITEM'], r['PRICE'])
+        
+    # add points to the account
+    res = add_points_to_user(pts_to_add, user)
+    # return success
+    
+    return res
+
+
+def add_points_firebase_manual(user, pts):
+    # check if user exists
+    users = get_firebase_users()
+    if user not in users:
+        return "FAIL"
+    # check if table is valid
+    if type(pts) != int:
+        return "FAIL"
+    # add points to the account
+    res = add_points_to_user(pts, user)
+    # return success
+    
+    return res
+
+
+def subtract_points_firebase(user, pts):
+    # check if user exists
+    users = get_firebase_users()
+    if user not in users:
+        return "FAIL"
+    # check if user has enough points
+    ref = db.reference(f'/users/{user}/points', app=app)
+    db_json = ref.get()
+    try:
+        current_pts = int(str(db_json))
+    except (TypeError, ValueError) as e:
+        return f"FAILED TO UPDATE: db_json value is {db_json}"
+    if current_pts < pts:
+        return "FAILED: INSUFFICIENT POINTS"
+    # subtract points
+    ref.update(current_pts - pts)
+    # return success
+    return "SUCCESS"
+    
 #
 # @timeit
 # def get_firebase_user_swi(usr_id):
