@@ -70,7 +70,7 @@ def add_points_manual():
     except KeyError:
         return jsonify("points key not provided in request data")
     try:
-        ret = helpers.add_points(uid, pts)
+        ret = helpers.add_points_manual(uid, pts)
     except Exception as e:
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)

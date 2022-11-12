@@ -108,10 +108,10 @@ def add_points_firebase_manual(user, pts):
     # check if user exists
     users = get_firebase_users()
     if user not in users:
-        return "FAIL"
+        return "FAIL 1"
     # check if table is valid
     if type(pts) != int:
-        return "FAIL"
+        return "FAIL 2"
     # add points to the account
     res = add_points_to_user(pts, user)
     # return success
