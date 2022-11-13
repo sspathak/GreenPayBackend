@@ -20,6 +20,11 @@ def get_offers(array=False):
 	return [offers_json[i] for i in offers_json.keys()] if array else offers_json
 
 
+def get_rewards(array=False):
+	rewards_json = get_firebase_rewards()
+	return [rewards_json[i] for i in rewards_json.keys()] if array else rewards_json
+
+
 def get_users():
 	return get_firebase_users()
 

@@ -55,6 +55,13 @@ def get_firebase_offers():
 
 
 @timeit
+def get_firebase_rewards():
+    ref = db.reference('/rewards', app=app)
+    db_json = ref.get()
+    return db_json
+
+
+@timeit
 def get_firebase_users():
     ref = db.reference('/users', app=app)
     db_json = ref.get()

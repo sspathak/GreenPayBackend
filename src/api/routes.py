@@ -57,6 +57,15 @@ def get_users():
     return jsonify(ret)
 
 
+@api.route('/get_rewards', methods=['GET'])
+def get_users():
+    try:
+        ret = helpers.get_rewards()
+    except Exception as e:
+        return jsonify(f"Error code AP01: {e}")
+    return jsonify(ret)
+
+
 @api.route('/add_points', methods=['POST'])
 def add_points():
     request_json = json.loads(request.data)
