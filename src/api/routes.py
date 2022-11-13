@@ -114,7 +114,7 @@ def subtract_points():
     except KeyError:
         return jsonify("points key not provided in request data")
     try:
-        ret = helpers.subtract_points(uid, pts)
+        ret = helpers.subtract_points(uid, r_id['cost'])
     except Exception as e:
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)
