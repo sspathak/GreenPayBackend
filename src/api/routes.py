@@ -15,6 +15,23 @@ def default():
     return jsonify(ret)
 
 
+@api.route("/home", methods=['GET'])
+def home():
+    try:
+        brands = helpers.get_brands(array=True)
+        offers = helpers.get_offers(array=True)
+        users = helpers.get_users()
+        ret_json = {
+            "brands": brands,
+            "offers": offers,
+            "users": users
+        }
+    except Exception as e:
+        return "This is awkward... the server seems to be busy. Please try again in a few minutes"
+    return jsonify(ret_json)
+
+    
+
 @api.route('/get_brands', methods=['GET'])
 def get_brands():
     try:
@@ -71,6 +88,24 @@ def add_points_manual():
         return jsonify("points key not provided in request data")
     try:
         ret = helpers.add_points_manual(uid, pts)
+    except Exception as e:
+        return jsonify(f"Error code AP01: {e}")
+    return jsonify(ret)
+
+
+@api.route('/subtract_points', methods=['POST'])
+def subtract_points():
+    request_json = json.loads(request.data)
+    try:
+        uid = request_json['userID']
+    except KeyError:
+        return jsonify("userID key not provided in request data")
+    try:
+        pts = request_json['points']
+    except KeyError:
+        return jsonify("points key not provided in request data")
+    try:
+        ret = helpers.subtract_points(uid, pts)
     except Exception as e:
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)
