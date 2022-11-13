@@ -61,12 +61,9 @@ def scan_receipt(im, uid):
 	print(response.text)
 	# do whatever calculations
 	resp_json = json.loads(response.text)
-	pts = compute_points(resp_json['items'])
+	pts = add_points_firebase(uid, resp_json['items'])
 	# get the delta
-	usr = get_users()[uid]
-	current_pts = usr['points']
 	# update the points
-	add_points_manual(uid, pts)
 	# return the table and the delta
 	resp_json['points_added'] = pts
 	return resp_json

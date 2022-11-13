@@ -70,7 +70,7 @@ def add_points_to_user(points, user):
         return f"FAILED TO UPDATE: db_json value is {db_json}"
     
     ref.set(current_pts+points)
-    return "SUCCESS"
+    return current_pts+points
 
 
 def compute_points(item, price):
@@ -103,7 +103,7 @@ def add_points_firebase(user, table):
     res = add_points_to_user(pts_to_add, user)
     # return success
     
-    return res
+    return pts_to_add
 
 
 def add_points_firebase_manual(user, pts):
