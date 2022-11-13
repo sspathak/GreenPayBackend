@@ -22,7 +22,7 @@ def get_offers(array=False):
 
 def get_users():
 	return get_firebase_users()
-	
+
 
 def add_points(uid, table):
 	return add_points_firebase(uid, table)
@@ -34,6 +34,17 @@ def add_points_manual(uid, pts):
 
 def subtract_points(uid, pts):
 	return subtract_points_firebase(uid, int(pts))
+
+
+def compute_points(item, price):
+	p = price
+	if price[0] == '$':
+		p = price[1:]
+	try:
+		pr = float(p)
+	except ValueError as e:
+		return -1
+	return pr * 100
 
 
 def scan_receipt(im, uid):
@@ -49,7 +60,13 @@ def scan_receipt(im, uid):
 	response = requests.request("POST", LAMBDA_URL, headers=headers, data=payload)
 	print(response.text)
 	# do whatever calculations
+	resp_json = json.loads(response.text)
+	pts = compute_points(resp_json['items'])
 	# get the delta
+	usr = get_users()[uid]
+	current_pts = usr['points']
 	# update the points
+	add_points_manual(uid, pts)
 	# return the table and the delta
-	pass
+	resp_json['points_added'] = pts
+	return resp_json

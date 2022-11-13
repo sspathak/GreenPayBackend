@@ -111,6 +111,7 @@ def subtract_points():
     return jsonify(ret)
 
 
+
 @api.route("/scan", methods=['POST'])
 def scan_receipt():
     request_json = json.loads(request.data)
