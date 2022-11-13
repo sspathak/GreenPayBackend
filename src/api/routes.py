@@ -109,3 +109,21 @@ def subtract_points():
     except Exception as e:
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)
+
+
+@api.route("/scan", methods=['POST'])
+def scan_receipt():
+    request_json = json.loads(request.data)
+    try:
+        im = request_json['Image']
+    except KeyError:
+        return jsonify("'Image' key not provided in request data")
+    try:
+        uid = request_json['userID']
+    except KeyError:
+        return jsonify("'userID' key not provided in request data")
+    try:
+        ret = helpers.scan_receipt(im, uid)
+    except Exception as e:
+        return jsonify(f"Error code AP01: {e}")
+    return jsonify(ret)

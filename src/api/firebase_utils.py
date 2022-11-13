@@ -72,6 +72,7 @@ def add_points_to_user(points, user):
     ref.set(current_pts+points)
     return "SUCCESS"
 
+
 def compute_points(item, price):
     p = price
     if price[0] == '$':
