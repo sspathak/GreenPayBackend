@@ -49,7 +49,7 @@ def compute_points(item, price):
 		pr = float(p)
 	except ValueError as e:
 		return -1
-	return pr * 100
+	return 25 + int(pr*0.2)
 
 
 def scan_receipt(im, uid):
