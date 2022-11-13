@@ -140,13 +140,13 @@ def subtract_points_firebase(user, pts):
     ref = db.reference(f'/users/{user}/points', app=app)
     db_json = ref.get()
     try:
-        current_pts = int(str(db_json))
+        current_pts = int(float(str(db_json)))
     except (TypeError, ValueError) as e:
         return f"FAILED TO UPDATE: db_json value is {db_json}"
     if current_pts < pts:
         return "FAILED: INSUFFICIENT POINTS"
     # subtract points
-    ref.update(current_pts - pts)
+    ref.set(current_pts - pts)
     # return success
     return "SUCCESS"
     
@@ -217,7 +217,8 @@ if __name__ == "__main__":
                   {"OTHER": "A0000000041010"}, {"OTHER": "2573548908906E35"}, {"OTHER": "n SC010906"},
                   {"OTHER": "0.00"}, {"OTHER": "20"}]}
     
-    val = add_points_firebase('user1', d["items"])
+    # val = add_points_firebase('user1', d["items"])
+    val = subtract_points_firebase('user1', 120000)
     print(val)
 
 
