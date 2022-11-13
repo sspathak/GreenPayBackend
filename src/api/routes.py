@@ -60,7 +60,8 @@ def get_users():
 @api.route('/get_rewards', methods=['GET'])
 def get_rewards():
     try:
-        ret = helpers.get_rewards(array=True)
+        ret = {'rewards': helpers.get_rewards(array=True)}
+        ret['balance'] = helpers.get_users()['user1']['points']
     except Exception as e:
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)
