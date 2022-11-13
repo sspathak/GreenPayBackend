@@ -1,5 +1,5 @@
 from src.api.firebase_utils import get_firebase_brands, get_firebase_offers, get_firebase_users, \
-	add_points_firebase, add_points_firebase_manual, subtract_points_firebase
+	add_points_firebase, add_points_firebase_manual, subtract_points_firebase, get_firebase_rewards
 import json
 import requests
 
