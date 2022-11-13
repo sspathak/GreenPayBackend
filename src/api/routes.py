@@ -60,7 +60,7 @@ def get_users():
 @api.route('/get_rewards', methods=['GET'])
 def get_rewards():
     try:
-        ret = helpers.get_rewards()
+        ret = helpers.get_rewards(array=True)
     except Exception as e:
         return jsonify(f"Error code AP01: {e}")
     return jsonify(ret)
