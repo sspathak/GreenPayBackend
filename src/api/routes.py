@@ -112,7 +112,7 @@ def subtract_points():
     try:
         r_id = request_json['rewardID']['cost']
     except KeyError:
-        return jsonify("points key not provided in request data")
+        return jsonify(f"points key not provided in request data : '{request_json}'")
     try:
         ret = helpers.subtract_points(uid, r_id)
     except Exception as e:
