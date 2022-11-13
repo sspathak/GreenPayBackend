@@ -88,7 +88,7 @@ def compute_points(item, price):
         pr = float(p)
     except ValueError as e:
         return -1
-    return pr * 100
+    return 25 + (pr * 0.2)
 
 
 def add_points_firebase(user, table):
