@@ -58,7 +58,7 @@ def get_users():
 
 
 @api.route('/get_rewards', methods=['GET'])
-def get_users():
+def get_rewards():
     try:
         ret = helpers.get_rewards()
     except Exception as e:
@@ -102,7 +102,7 @@ def add_points_manual():
     return jsonify(ret)
 
 
-@api.route('/subtract_points', methods=['POST'])
+@api.route('/redeem', methods=['POST'])
 def subtract_points():
     request_json = json.loads(request.data)
     try:
@@ -110,7 +110,7 @@ def subtract_points():
     except KeyError:
         return jsonify("userID key not provided in request data")
     try:
-        pts = request_json['points']
+        r_id = request_json['rewardID']
     except KeyError:
         return jsonify("points key not provided in request data")
     try:
